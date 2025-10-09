@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background-color: #f9fafb;
-}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -17,6 +13,7 @@ body {
     transform: scale(1);
   }
 }
+
 
 .animate-fadeIn {
   animation: fadeIn 0.25s ease-out;

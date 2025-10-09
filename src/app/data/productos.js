@@ -1,3 +1,4 @@
+{/* Datos de prueba para los productos  */}
 const productos = [
 
   { id: 1, nombre: "Croquetas para perro", precio: 350, imagen: "/imagenes/Croquetas.jpeg" },
