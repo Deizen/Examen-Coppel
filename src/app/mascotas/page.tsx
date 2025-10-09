@@ -9,11 +9,20 @@ import ImagenVariable from "../Components/ImagenVariable";
 
 export default function MascotasPage() {
   const [contadorCarrito, setContadorCarrito] = useState(0);
-  const [mostrarModal, setMostrarModal] = useState(false);
+  const [mostrarModal, setMostrarModal] = useState(true);
   const [productos, setProductos] = useState<any[]>([]);
+  const [mounted, setMounted] = useState(false);
 
-  // const abrirModal = () => setModalAbierto(true);
-  // const cerrarModal = () => setModalAbierto(false);
+  useEffect(() => {
+    setMounted(true); // asegura que estamos en cliente
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      setMostrarModal(true); // solo abre modal en cliente
+    }
+  }, [mounted]);
+
 
   const agregarAlCarrito = () => setContadorCarrito((prev) => prev + 1);
 
@@ -24,13 +33,13 @@ export default function MascotasPage() {
       .catch((err) => console.error("Error al obtener productos:", err));
   }, []);
 
-  console.log("Productos cargados:", productos);
+  // console.log("Productos cargados:", productos);
 
   return (
     <div className="min-h-screen p-4 md:p-8">
       <Header contadorCarrito={contadorCarrito} />
 
-      <h1 className="text-2xl font-bold mb-4 text-center">Categoría: Mascotas 🐾</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Categoría: Mascotas</h1>
       {/* Aqui se recorren los productos */}
       <div
           className="
@@ -64,7 +73,7 @@ export default function MascotasPage() {
         </button>
       </div>
 
-      {/* Modal */}
+      {/* Modal*/}
       {mostrarModal && <Modal onClose={() => setMostrarModal(false)} />}
 
       {/* Script que obtiene info de imágenes */}
