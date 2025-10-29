@@ -69,7 +69,7 @@ export default function MascotasPage() {
           onClick={() => setMostrarModal(true)}
           className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
         >
-          Abrir Mensaje Modal
+          Abrir Mensaje Modal A
         </button>
       </div>
 
